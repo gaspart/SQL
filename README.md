@@ -1,2 +1,2 @@
 # SQL
-Useful SQL statements
+Excel PowerQuery connection to Microsoft SQL Server database
