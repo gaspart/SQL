@@ -24,4 +24,4 @@ SELECT
   WHERE tm_datdoc >= '2023-01-01'
     AND tm_tipork IN ('A', 'D', 'E', 'N')
   
-  ORDER BY tm_datdoc DESC;"
+  ORDER BY tm_datdoc DESC;
