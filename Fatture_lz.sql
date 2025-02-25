@@ -9,7 +9,12 @@ select tm_anno AS 'Anno',
       mm_descr AS 'Descrizione',
       mm_quant AS 'Quantità',
       mm_valore AS 'Valore',
-      mm_hhmargval AS 'MDC' from 
+      mm_hhmargval AS 'MDC' 
+      mm_datini AS 'Data Inizio',
+	mm_datfin AS 'Data Fine'
+      
+from 
+      
 dbo.testmag inner join movmag
 on tm_tipork=mm_tipork
 and tm_anno=mm_anno
@@ -36,7 +41,10 @@ select testmagd.tm_anno AS 'Anno',
       mm_descr AS 'Descrizione',
       mm_quant AS 'Quantità',
       mm_valore AS 'Valore',
-      mm_hhmargval AS 'MDC' from 
+      mm_hhmargval AS 'MDC'
+      mm_datini AS 'Data Inizio',
+	mm_datfin AS 'Data Fine'
+from 
 testmag as testmagd inner join 
 testmag on testmagd.tm_tipork=testmag.tm_tiporkfat
 and testmagd.tm_anno=testmag.tm_annfat
