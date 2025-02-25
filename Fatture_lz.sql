@@ -9,10 +9,11 @@ select tm_anno AS 'Anno',
       mm_descr AS 'Descrizione',
       mm_quant AS 'Quantità',
       mm_valore AS 'Valore',
-      mm_hhmargval AS 'MDC' 
+      mm_hhmargval AS 'MDC' ,
       mm_datini AS 'Data Inizio',
-	mm_datfin AS 'Data Fine'
-      
+      mm_datfin AS 'Data Fine',
+      tb_descfam as 'Famiglia',
+      tb_descove as 'contropartita'
 from 
       
 dbo.testmag inner join movmag
@@ -25,6 +26,9 @@ and tm_numdoc=mm_numdoc
       left join commess on tm_commeca=co_comme
   LEFT JOIN dbo.anagra
      ON co_conto = an_conto
+left join artico on mm_codart=ar_codart
+left join tabcfam on ar_famprod=tb_codcfam
+left join tabcove on mm_controp=tb_codcove
 where tm_datdoc>='2023-01-01'
 and (tm_tipork in ('A','E','N'))
 
@@ -41,9 +45,11 @@ select testmagd.tm_anno AS 'Anno',
       mm_descr AS 'Descrizione',
       mm_quant AS 'Quantità',
       mm_valore AS 'Valore',
-      mm_hhmargval AS 'MDC'
+      mm_hhmargval AS 'MDC',
       mm_datini AS 'Data Inizio',
-	mm_datfin AS 'Data Fine'
+      mm_datfin AS 'Data Fine',
+      tb_descfam as 'Famiglia',
+      tb_descove as 'contropartita'
 from 
 testmag as testmagd inner join 
 testmag on testmagd.tm_tipork=testmag.tm_tiporkfat
@@ -59,5 +65,8 @@ and testmag.tm_numdoc=mm_numdoc
       left join commess on testmagd.tm_commeca=co_comme
   LEFT JOIN dbo.anagra
      ON co_conto = an_conto
+left join artico on mm_codart=ar_codart
+left join tabcfam on ar_famprod=tb_codcfam
+left join tabcove on mm_controp=tb_codcove
 where testmagd.tm_datdoc>='2023-01-01'
 and (testmagd.tm_tipork in ('D'))
