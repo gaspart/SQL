@@ -16,6 +16,9 @@ SELECT
   LEFT JOIN dbo.movmag
      ON dbo.testmag.tm_anno = dbo.movmag.mm_anno
      AND dbo.testmag.tm_numdoc = dbo.movmag.mm_numdoc
+     AND testmag.tm_serie = movmag.mm_serie
+     AND testmag.tm_tipork = movmag.mm_tipork
+      
   LEFT JOIN dbo.tabcage
      ON testmag.tm_codagen = dbo.tabcage.tb_codcage
   LEFT JOIN dbo.anagra
