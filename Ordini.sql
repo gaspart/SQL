@@ -12,12 +12,15 @@ SELECT
 	mo_datini AS 'Data Inizio',
 	mo_datfin AS 'Data Fine',
         mo_hhmargval AS 'MDC'
+	mo_flevas AS 'evaso?'
 FROM
 	dbo.movord
 JOIN
 	dbo.testord
 	ON mo_anno = td_anno
 	AND mo_numord = td_numord
+	AND mo_serie = td_serie
+	AND mo_tipork = td_tipork
 
 JOIN dbo.tabcage
    ON testord.td_codagen = dbo.tabcage.tb_codcage
@@ -28,5 +31,6 @@ Join dbo.anagra
 WHERE
 	mo_anno >= 2023
 	AND td_codcaua = 0
+	AND td_tipork = "R"
 ORDER BY 
 	dbo.movord.mo_anno DESC, mo_numord DESC;
