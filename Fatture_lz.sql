@@ -1,4 +1,15 @@
-select movmag.* from 
+select tm_anno AS 'Anno',
+      tm_datdoc AS 'Data',
+      tm_numdoc AS 'Numero',
+      tm_tipork,
+      an_descr1 AS 'Cliente',
+      tb_descage AS 'Agente',
+      mm_commeca AS 'Commessa',
+      mm_riga AS 'Riga',
+      mm_descr AS 'Descrizione',
+      mm_quant AS 'Quantità',
+      mm_valore AS 'Valore',
+      mm_hhmargval AS 'MDC' from 
 testmag inner join movmag
 on tm_tipork=mm_tipork
 and tm_anno=mm_anno
@@ -9,7 +20,18 @@ and (tm_tipork in ('A','E','N'))
 
 union all
 
-select movmag.* from 
+select tm_anno AS 'Anno',
+      tm_datdoc AS 'Data',
+      tm_numdoc AS 'Numero',
+      tm_tipork,
+      an_descr1 AS 'Cliente',
+      tb_descage AS 'Agente',
+      mm_commeca AS 'Commessa',
+      mm_riga AS 'Riga',
+      mm_descr AS 'Descrizione',
+      mm_quant AS 'Quantità',
+      mm_valore AS 'Valore',
+      mm_hhmargval AS 'MDC' from 
 testmag as testmagd inner join 
 testmag on testmagd.tm_tipork=testmag.tm_tiporkfat
 and testmagd.tm_anno=testmag.tm_annfat
