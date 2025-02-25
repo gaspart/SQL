@@ -20,10 +20,10 @@ and (tm_tipork in ('A','E','N'))
 
 union all
 
-select tm_anno AS 'Anno',
-      tm_datdoc AS 'Data',
-      tm_numdoc AS 'Numero',
-      tm_tipork,
+select testmagd.tm_anno AS 'Anno',
+      testmagd.tm_datdoc AS 'Data',
+      testmagd.tm_numdoc AS 'Numero',
+      testmagd.tm_tipork,
       an_descr1 AS 'Cliente',
       tb_descage AS 'Agente',
       mm_commeca AS 'Commessa',
