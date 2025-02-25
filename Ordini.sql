@@ -11,7 +11,7 @@ SELECT
 	mo_valore AS 'Valore',
 	mo_datini AS 'Data Inizio',
 	mo_datfin AS 'Data Fine',
-        mo_hhmargval AS 'MDC'
+        mo_hhmargval AS 'MDC',
 	mo_flevas AS 'evaso?'
 FROM
 	dbo.movord
@@ -31,6 +31,6 @@ Join dbo.anagra
 WHERE
 	mo_anno >= 2023
 	AND td_codcaua = 0
-	AND td_tipork = "R"
+	AND td_tipork = 'R'
 ORDER BY 
 	dbo.movord.mo_anno DESC, mo_numord DESC;
