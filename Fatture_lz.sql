@@ -17,8 +17,9 @@ and tm_serie=mm_serie
 and tm_numdoc=mm_numdoc
       LEFT JOIN dbo.tabcage
      ON testmag.tm_codagen = dbo.tabcage.tb_codcage
+      left join commess on tm_commeca=co_comme
   LEFT JOIN dbo.anagra
-     ON tm_conto = an_conto
+     ON co_conto = an_conto
 where tm_datdoc>='2023-01-01'
 and (tm_tipork in ('A','E','N'))
 
@@ -47,7 +48,8 @@ and testmag.tm_serie=mm_serie
 and testmag.tm_numdoc=mm_numdoc
       LEFT JOIN dbo.tabcage
      ON testmagd.tm_codagen = dbo.tabcage.tb_codcage
+      left join commess on testmagd.tm_commeca=co_comme
   LEFT JOIN dbo.anagra
-     ON testmagd.tm_conto = an_conto
+     ON co_conto = an_conto
 where testmagd.tm_datdoc>='2023-01-01'
 and (testmagd.tm_tipork in ('D'))
