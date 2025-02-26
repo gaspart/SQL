@@ -1,4 +1,5 @@
-select tm_anno AS 'Anno',
+SELECT
+      tm_anno AS 'Anno',
       tm_datdoc AS 'Data',
       tm_numdoc AS 'Numero',
       tm_tipork,
@@ -14,21 +15,26 @@ select tm_anno AS 'Anno',
       mm_datfin AS 'Data Fine',
       tb_descfam as 'Famiglia',
       tb_descove as 'contropartita'
-from 
       
-dbo.testmag inner join movmag
-on tm_tipork=mm_tipork
-and tm_anno=mm_anno
-and tm_serie=mm_serie
-and tm_numdoc=mm_numdoc
-      LEFT JOIN dbo.tabcage
-     ON testmag.tm_codagen = dbo.tabcage.tb_codcage
-      left join commess on tm_commeca=co_comme
-  LEFT JOIN dbo.anagra
-     ON co_conto = an_conto
-left join artico on mm_codart=ar_codart
-left join tabcfam on ar_famprod=tb_codcfam
-left join tabcove on mm_controp=tb_codcove
+FROM
+      dbo.testmag 
+      
+INNER JOIN
+      movmag
+      ON tm_tipork=mm_tipork
+      AND tm_anno=mm_anno
+      AND tm_serie=mm_serie
+      AND tm_numdoc=mm_numdoc
+LEFT JOIN
+      dbo.tabcage
+      ON testmag.tm_codagen = dbo.tabcage.tb_codcage
+LEFT JOIN commess
+      ON tm_commeca=co_comme
+LEFT JOIN dbo.anagra
+      ON co_conto = an_conto
+LEFT JOIN artico on mm_codart=ar_codart
+LEFT JOIN tabcfam on ar_famprod=tb_codcfam
+LEFT JOIN tabcove on mm_controp=tb_codcove
 where tm_datdoc>='2023-01-01'
 and (tm_tipork in ('A','E','N'))
 
