@@ -2,7 +2,6 @@ SELECT
       tm_anno AS 'Anno',
       tm_datdoc AS 'Data',
       tm_numdoc AS 'Numero',
-      tm_tipork,
       an_descr1 AS 'Cliente',
       tb_descage AS 'Agente',
       mm_commeca AS 'Commessa',
