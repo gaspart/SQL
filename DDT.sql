@@ -9,7 +9,9 @@ SELECT
       mm_descr AS 'Descrizione',
       mm_quant AS 'Quantità',
       mm_valore AS 'Valore',
-      mm_hhmargval AS 'MDC'
+      mm_hhmargval AS 'MDC',
+      tm_controp AS 'Contropartita',
+      tm_tipobf AS 'Tipo Bolla/Fattura'
   FROM dbo.testmag
   
   LEFT JOIN dbo.movmag
