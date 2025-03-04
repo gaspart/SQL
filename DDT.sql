@@ -10,8 +10,10 @@ SELECT
       mm_quant AS 'Quantità',
       mm_valore AS 'Valore',
       mm_hhmargval AS 'MDC',
-      tm_controp AS 'Contropartita',
-      tm_tipobf AS 'Tipo Bolla/Fattura'
+      mm_controp AS 'Contropartita',
+	  tb_descove AS 'Desc. Contropartita',
+      tm_tipobf AS 'Tipo Bolla/Fattura',
+	  tb_destpbf as 'Descr. Tipo Bolla/Fattura'
   FROM dbo.testmag
   
   LEFT JOIN dbo.movmag
@@ -24,7 +26,8 @@ SELECT
      ON testmag.tm_codagen = dbo.tabcage.tb_codcage
   LEFT JOIN dbo.anagra
      ON tm_conto = an_conto
-  
+  LEFT JOIN tabcove on mm_controp=tb_codcove
+  left join tabtpbf on tm_tipobf = tb_codtpbf 
   WHERE tm_datdoc >= '2023-01-01'
     AND tm_tipork IN ('B')
   
